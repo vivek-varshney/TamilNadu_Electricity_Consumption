@@ -128,8 +128,21 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-        <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+      <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+          <bin default-name='true' value='&quot;0&quot;'>
+            <value>0</value>
+          </bin>
+          <bin default-name='true' value='&quot;1&quot;'>
+            <value>1</value>
+          </bin>
+          <bin default-name='true' value='&quot;2&quot;'>
+            <value>2</value>
+          </bin>
+          <bin default-name='true' value='&quot;3&quot;'>
+            <value>3</value>
+          </bin>
+        </calculation>
       </column>
       <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
       <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
@@ -137,6 +150,16 @@
       <column caption='K Va' datatype='real' name='[kVA]' role='measure' type='quantitative' />
       <column caption='K W' datatype='real' name='[kW]' role='measure' type='quantitative' />
       <column-instance column='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' derivation='Count' name='[__tableau_internal_object_id__].[diff:cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' derivation='Count' name='[__tableau_internal_object_id__].[pcto:cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
       <column-instance column='[kVA]' derivation='Sum' name='[cum:sum:kVA:qk]' pivot='key' type='quantitative'>
         <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
       </column-instance>
@@ -193,6 +216,12 @@
             </map>
             <map to='#76b7b2'>
               <bucket>&quot;[federated.08tgq1p12e1kud155ib2d0b8lt82].[__tableau_internal_object_id__].[cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.08tgq1p12e1kud155ib2d0b8lt82].[__tableau_internal_object_id__].[diff:cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.08tgq1p12e1kud155ib2d0b8lt82].[__tableau_internal_object_id__].[pcto:cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]&quot;</bucket>
             </map>
             <map to='#76b7b2'>
               <bucket>&quot;[federated.08tgq1p12e1kud155ib2d0b8lt82].[pcto:cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk:2]&quot;</bucket>
@@ -253,8 +282,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
@@ -315,8 +357,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
@@ -377,8 +432,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
@@ -432,8 +500,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
@@ -494,8 +575,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
@@ -539,6 +633,69 @@
       </table>
       <simple-id uuid='{E4821B9D-93BF-4D13-9302-7A60AB1FBFFA}' />
     </worksheet>
+    <worksheet name='Counts per sector per cluster'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
+          </datasources>
+          <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
+            <_.fcp.ObjectModelTableType.false...column caption='TamilNadu_Electricity_Consumption.csv' datatype='integer' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+            <_.fcp.ObjectModelTableType.true...column caption='TamilNadu_Electricity_Consumption.csv' datatype='table' name='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.08tgq1p12e1kud155ib2d0b8lt82].[__tableau_internal_object_id__].[cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]' field-type='quantitative' max='825' min='250' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.08tgq1p12e1kud155ib2d0b8lt82].[Cluster (group)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-markers-mode' value='all' />
+                <format attr='mark-transparency' value='231' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.08tgq1p12e1kud155ib2d0b8lt82].[__tableau_internal_object_id__].[cnt:TamilNadu_Electricity_Consumption.csv_E04E8124A6D34B0684F27EBC9FE6F8E9:qk]</rows>
+        <cols>[federated.08tgq1p12e1kud155ib2d0b8lt82].[none:Type:nk]</cols>
+      </table>
+      <simple-id uuid='{D148E6D8-02EA-40BB-87B8-9CAD2AF7B457}' />
+    </worksheet>
     <worksheet name='KVA in Clusters'>
       <layout-options>
         <title>
@@ -553,8 +710,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <column caption='K Va' datatype='real' name='[kVA]' role='measure' type='quantitative' />
@@ -691,8 +861,21 @@
             <datasource caption='TamilNadu_Electricity_Consumption' name='federated.08tgq1p12e1kud155ib2d0b8lt82' />
           </datasources>
           <datasource-dependencies datasource='federated.08tgq1p12e1kud155ib2d0b8lt82'>
-            <column datatype='string' name='[Cluster (group)]' role='dimension' type='ordinal'>
-              <calculation class='categorical-bin' column='[Cluster]' new-bin='true' />
+            <column datatype='string' name='[Cluster (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Cluster]' new-bin='true'>
+                <bin default-name='true' value='&quot;0&quot;'>
+                  <value>0</value>
+                </bin>
+                <bin default-name='true' value='&quot;1&quot;'>
+                  <value>1</value>
+                </bin>
+                <bin default-name='true' value='&quot;2&quot;'>
+                  <value>2</value>
+                </bin>
+                <bin default-name='true' value='&quot;3&quot;'>
+                  <value>3</value>
+                </bin>
+              </calculation>
             </column>
             <column datatype='integer' name='[Cluster]' role='measure' type='quantitative' />
             <column caption='K W' datatype='real' name='[kW]' role='measure' type='quantitative' />
@@ -814,8 +997,8 @@
           </layout-options>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='27' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='26' param='vert' w='98438' x='781' y='1042'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='37' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='36' param='vert' w='98438' x='781' y='1042'>
                 <zone _.fcp.SetMembershipControl.false...type='title' _.fcp.SetMembershipControl.true...type-v2='title' h='5469' id='13' w='98438' x='781' y='1042'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -928,8 +1111,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1250' minheight='1250' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='24' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='23' param='vert' w='98438' x='781' y='1042'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='34' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='33' param='vert' w='98438' x='781' y='1042'>
                 <zone fixed-size='280' h='48958' id='3' is-fixed='true' name='Cluster 0' w='41406' x='781' y='1042'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -990,7 +1173,7 @@
     </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' name='KVA vs KW'>
+    <window class='worksheet' maximized='true' name='KVA vs KW'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1018,16 +1201,6 @@
       </cards>
       <viewpoint>
         <zoom type='fit-width' />
-        <selection-collection>
-          <node-selection select-tuples='false'>
-            <oriented-node-reference orientation='vertical'>
-              <node-reference>
-                <axis>[federated.08tgq1p12e1kud155ib2d0b8lt82].[sum:kW:qk]</axis>
-              </node-reference>
-              <page-reference />
-            </oriented-node-reference>
-          </node-selection>
-        </selection-collection>
         <highlight>
           <color-one-way>
             <field>[federated.08tgq1p12e1kud155ib2d0b8lt82].[none:Type:nk]</field>
@@ -1036,7 +1209,7 @@
       </viewpoint>
       <simple-id uuid='{21742EF1-5FC1-4746-9AE0-E08BC6726AC7}' />
     </window>
-    <window class='worksheet' maximized='true' name='Cluster Counts'>
+    <window class='worksheet' name='Cluster Counts'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1152,15 +1325,9 @@
       <viewpoints>
         <viewpoint name='KVA in Clusters'>
           <zoom type='entire-view' />
-          <highlight field='[federated.08tgq1p12e1kud155ib2d0b8lt82].[sum:kVA:qk]' type='size'>
-            <bucket-selection />
-          </highlight>
         </viewpoint>
         <viewpoint name='KW in Clusters'>
           <zoom type='entire-view' />
-          <highlight field='[federated.08tgq1p12e1kud155ib2d0b8lt82].[sum:kW:qk]' type='size'>
-            <bucket-selection />
-          </highlight>
         </viewpoint>
       </viewpoints>
       <active id='-1' />
@@ -1336,6 +1503,44 @@
       </viewpoints>
       <active id='-1' />
       <simple-id uuid='{A521F1D3-12E1-4D5C-A7D1-4D1827D48D6E}' />
+    </window>
+    <window class='worksheet' name='Counts per sector per cluster'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card pane-specification-id='0' param='[federated.08tgq1p12e1kud155ib2d0b8lt82].[Cluster (group)]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.08tgq1p12e1kud155ib2d0b8lt82].[Cluster (group)]</field>
+            <field>[federated.08tgq1p12e1kud155ib2d0b8lt82].[none:Type:nk]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{A73FF9B3-9E73-485C-9330-5B519E4581C6}' />
     </window>
   </windows>
   <thumbnails>
@@ -2176,6 +2381,276 @@
       SBpCCMRGRxGsrYO/qhqh9nYGQHIS0Siig4MMgOTGK8JIagyApMYASGoMgKTGAEhqDICkxgBI
       agyApMYASGoMgKTGAEhqDICkxgBIagyApMYASGoMgKTGAEhqDICkxgBIagyApMYASGoMgKTG
       AEhqDICkxgBIagyApMYASGoMgKTGAEhq/wPMEU6JTg7+MgAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Counts per sector per cluster' width='192'>
+      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
     </thumbnail>
     <thumbnail height='192' name='Dashboard 1' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
